@@ -1,0 +1,264 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+:root{
+    --dk-voilet: hsl(268, 75%, 9%);
+    --lt-voilet: hsl(268, 47%, 21%);
+    --lt-voilet2: hsl(281, 89%, 26%);
+    --vb-voilet: hsl(285, 91%, 52%);
+    --vb-voilet2: hsl(290, 70%, 36%);
+
+    --vb-yellow: hsl(52, 100%, 62%);
+
+    --pl-white: hsl(0, 0%, 100%);
+
+    --vb-cyan: hsl(176, 100%, 44%);
+    --vb-cyan2: hsl(177, 92%, 70%);
+
+    --dk-text: hsl(198, 20%, 13%);
+}
+
+.container{
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(231deg, rgba(22, 6, 40, 1) 0%, rgba(52, 28, 79, 1) 50%, rgba(88, 7, 125, 1) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.heading{
+    color: var(--pl-white);
+    font-size: 0.8rem;
+    text-align: center;
+    padding: 1rem;
+}
+
+.display-container{
+    background-color: var(--dk-voilet);
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid var(--dk-voilet);
+    border-radius: 0.6rem;
+    padding: 0.7rem;
+    border-bottom: 4px solid var(--vb-voilet2);
+    display: flex;
+    position: relative;
+}
+
+.display{
+    width: 80%;  
+    background-color: transparent;
+    border: 0px;
+    color: var(--vb-yellow);
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.display::placeholder{
+    opacity: 1;
+    color: var(--vb-yellow);
+}
+
+#copy-button{
+    height: 1.5rem;
+    width: 1.5rem;
+    background-color: transparent;
+    border: 0px;
+    display: flex;
+    position: relative;
+}
+
+#copy-button img{
+    height: 100%;
+    width: 100%;
+}
+
+[data-copy-message] {
+    position: absolute;
+    bottom: 100%; /* Place above the button */
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 5px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 1;
+    transition: opacity 0.75s ease-in-out;
+}
+
+.controller{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--dk-voilet);
+    color: var(--pl-white);
+    margin-top: 1rem;
+    border-radius: 0.6rem;
+    border-bottom: 4px solid var(--vb-voilet);
+    padding: 1rem;
+    font-weight: 700;
+    padding-bottom: 0.5rem;
+}
+
+.length-container{
+    display: flex;
+    justify-content: space-between;
+    padding-right: 0.5rem;
+    margin-bottom: 0.2rem;
+}
+
+#length-number{
+    color: var(--vb-yellow);
+}
+
+.slider{
+    padding: 1rem;
+    width: 100%;
+}
+
+/* Style the slider track */
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 6px;
+    background: transparent;
+    border-radius: 5px;
+    outline: none;
+    transition: 0.3s;
+}
+
+/* Custom track color */
+.slider::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 6px;
+    background: var(--vb-voilet); /* Make track red */
+    border-radius: 5px;
+}
+
+.slider::-moz-range-track {
+    width: 100%;
+    height: 6px;
+    background: var(--vb-voilet); /* Make track red */
+    border-radius: 5px;
+}
+
+/* Style the slider thumb (circle) */
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: var(--vb-yellow);
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 10px var(--vb-yellow); /* Glowing effect */
+    transition: 0.3s;
+    margin-top: -7px;
+}
+
+.slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: var(--vb-yellow);
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 10px var(--vb-yellow); /* Glowing effect */
+    transition: 0.3s;
+}
+
+/* Add glow effect when active */
+.slider:active::-webkit-slider-thumb {
+    box-shadow: 0 0 15px var(--vb-yellow);
+}
+
+.slider:active::-moz-range-thumb {
+    box-shadow: 0 0 15px var(--vb-yellow);
+}
+
+.check-box-container{
+    font-size: 0.9rem;
+}
+
+#check-box-item{
+    padding: 0.2rem;
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* Style the checkbox */
+input[type="checkbox"] {
+    -webkit-appearance: none; /* Remove default styling */
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid transparent; /* Transparent border */
+    background-color: transparent;
+    position: relative;
+    cursor: pointer;
+    border-radius: 4px; /* Optional: Make it rounded */
+}
+
+/* Apply a two-tone border effect */
+input[type="checkbox"]::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    border: 2px solid;
+    border-color: var(--vb-cyan) var(--vb-cyan) var(--pl-white) var(--pl-white);
+}
+
+/* Checked state: Add a checkmark */
+input[type="checkbox"]:checked::after {
+    content: "✔";
+    font-size: 14px;
+    font-weight: 100;
+    color: black;
+    position: absolute;
+    background-color: transparent;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+input[type="checkbox"]:checked {
+    background-color: var(--vb-cyan2);
+}
+
+.strength-container{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.strength-indicator{
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;        
+}
+
+.generator{
+    background-color: var(--vb-voilet);
+    border-radius: 0.6rem;
+    padding: 0.4rem;
+    border-bottom: 4px solid var(--vb-yellow);
+    margin: 1.2rem 0rem 0.5rem 0.5rem;
+}
+
+#generate-button{
+    color: var(--vb-yellow);
+    background-color: transparent;
+    border: 0px;
+    width: 100%;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1rem;
+}
